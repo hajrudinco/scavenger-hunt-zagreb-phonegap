@@ -183,11 +183,11 @@ controllers.Map = {
 			controller.selectGame();
 		}
 		else {
-			controllers.Common.showMessageBox("Skenirali ste krivi kod", "Scan", "button no-button", true);
+			controllers.Common.showMessageBox("Skenirali ste krivi kod.", "Scan", "button no-button", true);
 		}
 	},
 	onScanError: function(error) {
-		controllers.Common.showMessageBox("Pogreška pirlikom skeniranja", "Scan", "button no-button", true);
+		controllers.Common.showMessageBox("Pogreška prilikom skeniranja.", "Scan", "button no-button", true);
 	},
 	selectGame: function() {
 		var controller = controllers.Map,
