@@ -163,7 +163,7 @@ controllers.Map = {
 	        );
     	}
     	else {
-    		me.onScanSuccessfull({
+    		me.onScanSuccessful({
     			text: me.activeGame.location.code
     		});
     	}
