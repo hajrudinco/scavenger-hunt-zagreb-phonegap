@@ -158,7 +158,7 @@ controllers.Map = {
 	                    me.onScanSuccessful(result);
 	            },
 	            function(error) {
-	                me.scanError(error);
+	                me.onScanError(error);
 	            }
 	        );
     	}
@@ -168,7 +168,7 @@ controllers.Map = {
     		});
     	}
 	},
-	onScanSuccessfull: function(result) {
+	onScanSuccessful: function(result) {
 		var controller = controllers.Map,
 			activeGame = controller.activeGame,
 			gameNumber = controller.activeGameIndex;
@@ -185,6 +185,9 @@ controllers.Map = {
 		else {
 			controllers.Common.showMessageBox("Skenirali ste krivi kod", "Scan", "button no-button", true);
 		}
+	},
+	onScanError: function(error) {
+		controllers.Common.showMessageBox("Pogreška pirlikom skeniranja", "Scan", "button no-button", true);
 	},
 	selectGame: function() {
 		var controller = controllers.Map,

@@ -9,6 +9,9 @@ controllers.Main = {
 			isProduction = me.isProduction();
 
 		document.addEventListener('deviceready', me.onDeviceReady, false);
+		document.addEventListener('backbutton', function(event) {
+            me.onBackButtonPress(event);
+        }, false);
 
 		if(!isProduction) {
 			me.onDeviceReady();
@@ -41,6 +44,11 @@ controllers.Main = {
 		views.NavigationBar.on('touchstart', '.left-button.close', me.onAppClose);
 		views.NavigationBar.on('touchstart', '.right-button.info', me.onInfo);
 	},
+	onBackButtonPress: function(event) {
+		event.preventDefault();
+		var leftButton = views.NavigationBar.find(".left-button").eq(0);
+		leftButton.trigger('touchstart');
+	},
 	showMapView: function() {
 		var splashScreen = views.SplashScreen,
 			mapView = views.Map,
@@ -54,7 +62,7 @@ controllers.Main = {
 		});
 	},
 	onAppClose: function() {
-
+		navigator.app.exitApp();
 	},
 	onInfo: function() {
 		controllers.Common.showMessageBox("Aplikaciju izradio tim Clue,\
